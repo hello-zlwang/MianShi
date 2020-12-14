@@ -94,9 +94,49 @@ id_rsa：是私钥，id_rsa.pub：公钥
 
 将公钥信息添加到远程仓库即可进行免密操作。
 
+六、初始化一个仓库
 
+初始化仓库有两种方式，
 
+> git init，在本地初始化一个仓库
+>
+> git clone，从远程仓库中克隆一个仓库
 
+七、文件在各区域内的流向
+
+前面我们说过，git的工作区有3个或者4个，分别是工作目录、暂存区、本地资源库、远程资源库。
+
+我们怎么样将一个文件层层流转呢？
+
+<img src="..\images\git\git6-filechange.png" alt="git6-filechange" style="zoom:67%;" />
+
+根据上图，我们可以学习几个命令
+
+git add：git add  filename 或 git add ./（将所有文件添加到暂存区）
+
+git commit：git commit -m“desc”，将暂存区中的文件添加到本地仓库
+
+git push：git push git地址 分支，将本地仓库中的内容添加到远程仓库
+
+git pull：git pull git地址 分支，将远程仓库中的内容拉取到本地仓库
+
+git reset：git reset hash值，回退到指定版本
+
+git checkout：git checkout --filename 取消暂存，或者git restore --staged filename----------------
+
+八、文件状态
+
+文件的状态有四种，未跟踪、未修改、已修改、已暂存
+
+untracked：未跟踪，不受git管理。在工作空间中，新增一个文件，这个文件状态就是untracked。
+
+unmodify：已入库，未修改，文件内容与仓库中一致。将暂存区的文件使用git commit命令提交到本					 地仓库中，文件状态就是unmodify。
+
+modify：已修改。修改工作目录中已经提交的文件，此时文件就是modify。
+
+staged：已添加至暂存区。将新增的文件使用git add filename，此文件状态变为staged。
+
+<img src="D:\a-github\MianShi\images\git\git7-filestatus.png" alt="git7-filestatus" style="zoom:80%;" />
 
 
 
