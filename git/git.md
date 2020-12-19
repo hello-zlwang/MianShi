@@ -1,4 +1,4 @@
-git
+## git ##
 
 一、git工作区
 
@@ -10,9 +10,9 @@ git的工作区有三个或者四个。
 
 > 工作目录：一般就是我们本地的文件，直接对其文件或内容进行修改
 >
-> 暂存区：
+> 暂存区：stage/index，在.git文件下的index文件中
 >
-> 本地资源库：
+> 本地资源库：.git文件就是本地资源库
 >
 > 远程资源库：github、gitlab、gitee等这些都属于远程资源库
 
@@ -138,6 +138,8 @@ staged：已添加至暂存区。将新增的文件使用git add filename，此�
 
 <img src="D:\a-github\MianShi\images\git\git7-filestatus.png" alt="git7-filestatus" style="zoom:80%;" />
 
+可以通过git status 或者 git status filename查看具体文件的状态
+
 九、版本前进和后退
 
 git的版本前进和后退有三种方式，分别是索引值、^ 、~ 。推荐使用索引值方式，所以就不在介绍^和~的方式。
@@ -166,6 +168,8 @@ git reset --hard 索引值，就可以直接前进或回退到指定版本。
 
 从上图，我们可以看到版本已经退回到08a5a26版本。
 
+<img src="D:\a-github\MianShi\images\git\git17.png" alt="git17" style="zoom:50%;" />
+
 git reset 有三个参数
 
 ​	--soft，仅仅在本地库移动head指针
@@ -175,6 +179,8 @@ git reset 有三个参数
 ​	--hard，本地库和暂存区和工作空间都移动head指针
 
 版本回退作用：在我们本地库中的一个文件被删除了，怎么找回来呢？我们可以退回到该文件还存在的版本，找到该文件后，在前进到最新版本就可以。
+
+
 
 十、分支
 
@@ -232,5 +238,194 @@ git pull，拉取，git pull=git fetch + merge，
 
 git fetch，只是将远程仓库地址拉取到本地仓库中，并没有修改我们工作目录中的内容。
 
+git checkout 远程仓库/分支 切换到从远程仓库拉取下来的分支上，就可以查看拉取下来的内容
+
+git merge ，将本地仓库内容与工作目录的内容进行合并
+
+git fetch 仓库地址 分支
+
+git checkout 仓库地址/分支
+
+git merge 仓库地址/分支
 
 
+
+十二、标签
+
+当我们进行版本的前进后后退，是怎么样操作呢？
+
+git reset --hard 索引值，索引值？一串hash值，你能记住吗？所以，这时候，标签就发挥用处了。
+
+git tag，查看所有的标签
+
+git tag tagname，为最近一次的commit创建tag
+
+git show tagname，查看tag的详细信息
+
+<img src="D:\a-github\MianShi\images\git\git18.png" alt="git18" style="zoom: 50%;" />
+
+git tag tagname 索引值，为指定的提交创建tag
+
+git tag -d tagname，删除指定标签
+
+git push 仓库地址 tagname，提交指定标签
+
+git push 仓库地址 --tags，提交所有的标签
+
+git push 仓库地址:refs/tags/tagname，删除远程标签
+
+
+
+十三、暂存区和本地仓库在哪里？
+
+暂存区和本地仓库以及工作目录都是在我们的本地电脑上，工作目录我们都知道，但是暂存区和本地仓库在哪里呢？
+
+当我们在使用git init 初始化一个git仓库后，只清楚git自动给我们创建了一个.git文件，并没有去关注他的结构，现在我们先看下.git文件结构目录。
+
+<img src="D:\a-github\MianShi\images\git\git19.png" alt="git19" style="zoom:67%;" />
+
+1、hooks，里面是git提供的命令脚本
+
+2、info，存放仓库的一些信息
+
+3、logs，记录每次跟新的操作。HEAD文件内容如下：![git20](D:\a-github\MianShi\images\git\git20.png)
+
+看到这个文件，是不是发现，这些就是我们git log展示的信息。
+
+4、objects，保存git的所有对象
+
+可以根据每次提交生成的hash值与objects中的一个文件对应。
+
+<img src="D:\a-github\MianShi\images\git\git21.png" alt="git21" style="zoom:50%;" />
+
+也就是说，我们每次提交，都会生成一个object对象与之对应。
+
+5、refs
+
+<img src="D:\a-github\MianShi\images\git\git22.png" alt="git22" style="zoom:50%;" />
+
+heads/master文件存储了当前最新的hash值
+
+tags，有没有很熟悉，firsttag就是我们创建的标签，firsttag文件内也存储了与之对应的hash值
+
+6、COMMIT_EDITMSG，最近一次提交的commit的信息
+
+7、config，项目级别文档配置文件
+
+8、description，仓库的描述信息
+
+9、HEAD，映射ref引用，最新一次提交操作的hash值
+
+HEAD文件内容：ref: refs/heads/master，指向了master文件。
+
+<img src="D:\a-github\MianShi\images\git\git23.png" alt="git23" style="zoom: 50%;" />
+
+10、index，暂存区stage
+
+11、ORIG_HEDA，HEDA指针的前一个版本hash值(最新一次提交操作的前一次提交操作的hash值)
+
+
+
+查看暂存区的内容git ls-files --stage 或 git ls-files -s
+
+查看暂存区中某个文件的内容git cat-files -p 文件hash值
+
+<img src="D:\a-github\MianShi\images\git\git24.png" alt="git24" style="zoom:50%;" />
+
+暂存区中文件的hash值正好与objects文件中的一个文件对应。
+
+
+
+原理：
+
+1. 当我们新初始化的git仓库，.git文件中是没有index文件的，objects中只有两个空的文件夹info和pack。
+
+2. 当我们创建一个新的文件test.txt，并将此文件提交到暂存区后，会创建一个index文件，并且在objects中创建一个文件。index其实是一个二进制文件，存储索引列表。每个索引都有一个40位的16进制SHA-1 Hash以及他对应的文件名与之对应，索引中还包括文件模式和权限、时间戳等。每一个索引都与对象库objects中的一个文件对应。这个index文件中除了一些索引之外他还维护了一些提前计算好的tree对象的内容（也就是工作区中的一个个tree对象）
+
+3. 当我们将暂存区中的内容提交到本地库时，又会生成与工作目录中对应的tree对象，在生成一个commit对象。我们的commit对象指向我们顶层的tree对象，我们的分支名以及标签指向这个commit对象。
+
+4. 当我们修改文件添加到暂存区后，在objects中有会创建一个新的对象。index中该文件的索引就会指向对象库中新的对象。会重新计算tree对象，当执行commit时，又会根据计算的tree对象在对象库中生成一个tree对象。新生成的commit对象指向新的tree。
+
+   <img src="D:\a-github\MianShi\images\git\git25.png" alt="git25" style="zoom:67%;" />
+
+
+
+十四、命令总结
+
+
+
+git config -l，git config --system -l，git 从fit --global -l 查看git配置信息
+
+git config user.name "" 添加用户名，git config user.email "" 添加邮箱
+
+git init，初始化一个git仓库
+
+git clone 远程仓库 分支，克隆仓库
+
+git add filename 将filename添加至暂存区,  git add ./ 将所有文件添加至暂存区
+
+git rm --cached file ,删除暂存区中的文件，保留工作目录中的文件
+
+git rm file ,删除工作区文件，并且将这次删除放入暂存区
+
+git mv sourcefilename lastfilename，修改文件名，并且将修改后的文件放入暂存区
+
+git commit -m "xxx" 将暂存区内容提交到本地仓库
+
+git commit -a 可以直接将工作目录中的内容提交到本地仓库
+
+git commit --amend -m "xxx"，修改上次提交的描述等信息
+
+git push
+
+git pull
+
+git branch ，查看本地所有分支
+
+git branch -r，列出所有远程分支
+
+git branch -a，列出所有本地分支和远程分支
+
+git branch branchname，新建分支
+
+git checkoutout branchname，切换分支
+
+git merge branchname 将branchname分支合并到当前分支
+
+git push origin --delete，删除远程分支
+
+git branch -dr [remote/branch]，删除远程分支
+
+
+
+git checkout filename，恢复暂存区的指定文件到工作区
+
+git checkout . ，恢复暂存区的所有文件到工作区
+
+git reset filename，将指定文件恢复到上一此提交的版本
+
+git reset --hard 索引值，将版本前进或后退到指定版本
+
+
+
+
+
+十五、git工具
+
+工作中我们一般很少去直接使用命令，推荐两个比较好用的git工具
+
+TortoiseGit：https://download.tortoisegit.org/
+
+SourceTree：https://www.sourcetreeapp.com/
+
+
+
+文章参考：
+
+git暂存区原理：https://blog.csdn.net/s646575997/article/details/52143586
+
+
+
+
+
+ 
