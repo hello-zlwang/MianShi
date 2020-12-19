@@ -40,7 +40,7 @@ git安装完成后，首先查看git的配置。
 
 git config --system -l ,git的system级别的日志在 C:\Program Files\Git\etc\gitconfig中
 
-![git2-systemconfig](../images/git/git2-systemconfig.png)
+![git2-systemconfig](https://github.com/hello-zlwang/MianShi/tree/main/images/git/git2-systemconfig.png)
 
 git config --global -l ,git的global级别的日志在 C:\Users\Administrator\.gitconfig中
 
