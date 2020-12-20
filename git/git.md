@@ -34,15 +34,23 @@ git安装完成后，首先查看git的配置。
 
 例图：
 
-<img src="../images/git/git1-config.png" alt="git1-config" style="zoom:67%;" />
+<img src="C:%5CUsers%5Czlwang08%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201220103326384.png" alt="image-20201220103326384" style="zoom:67%;" />
+
+
 
 其实git的配置就是一个文件内容。
 
 git config --system -l ,git的system级别的日志在 C:\Program Files\Git\etc\gitconfig中
 
-![git2-systemconfig](https://github.com/hello-zlwang/MianShi/tree/main/images/git/git2-systemconfig.png)
+![image-20201220103423709](https://i.loli.net/2020/12/20/HThMtbaxI6j9RDy.png)
+
+
+
+![git2-systemconfig](../images/git/git2-systemconfig.png)
 
 git config --global -l ,git的global级别的日志在 C:\Users\Administrator\.gitconfig中
+
+
 
 ![git3-globalconfig](../images/git/git3-globalconfig.png)
 
@@ -109,6 +117,8 @@ id_rsa：是私钥，id_rsa.pub：公钥
 我们怎么样将一个文件层层流转呢？
 
 <img src="..\images\git\git6-filechange.png" alt="git6-filechange" style="zoom:67%;" />
+
+<img src="https://i.loli.net/2020/12/19/jBEKMV6bRFNd8Ps.png" style="zoom:50%;" />
 
 根据上图，我们可以学习几个命令
 
