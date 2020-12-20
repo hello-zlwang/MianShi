@@ -136,8 +136,6 @@ modify：已修改。修改工作目录中已经提交的文件，此时文件�
 
 staged：已添加至暂存区。将新增的文件使用git add filename，此文件状态变为staged。
 
-<img src="D:\a-github\MianShi\images\git\git7-filestatus.png" alt="git7-filestatus" style="zoom:80%;" />
-
 ![](https://i.loli.net/2020/12/20/RYxetLMhVbDd8Js.png)
 
 可以通过git status 或者 git status filename查看具体文件的状态
