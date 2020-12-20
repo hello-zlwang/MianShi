@@ -34,9 +34,7 @@ git安装完成后，首先查看git的配置。
 
 例图：
 
-<img src="C:%5CUsers%5Czlwang08%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201220103326384.png" alt="image-20201220103326384" style="zoom:67%;" />
-
-
+<img src="https://i.loli.net/2020/12/20/dDeKR4pSnYjw3ZF.png" style="zoom:67%;" />
 
 其实git的配置就是一个文件内容。
 
@@ -44,15 +42,9 @@ git config --system -l ,git的system级别的日志在 C:\Program Files\Git\etc\
 
 ![image-20201220103423709](https://i.loli.net/2020/12/20/HThMtbaxI6j9RDy.png)
 
-
-
-![git2-systemconfig](../images/git/git2-systemconfig.png)
-
 git config --global -l ,git的global级别的日志在 C:\Users\Administrator\.gitconfig中
 
-
-
-![git3-globalconfig](../images/git/git3-globalconfig.png)
+![](https://i.loli.net/2020/12/20/ukfoOSLdg8IBe9E.png)
 
 四、git添加用户名和邮箱
 
@@ -80,7 +72,7 @@ git config user.email "李四@mail"
 
 我们可以打开该仓库中隐藏文件夹.git/config文件
 
-<img src="../images/git/git4-projectconfig.png" alt="git4-projectconfig" style="zoom:80%;" />
+<img src="https://i.loli.net/2020/12/20/bJYSn5Gay1OrmEf.png" style="zoom: 67%;" />
 
 > 修改文件方式
 
@@ -96,7 +88,7 @@ git config user.email "李四@mail"
 
 使用上面的命令，就会生成两个秘钥文件，一个私钥，一个公钥。
 
-![git5-key](../images/git/git5-key.png)
+<img src="https://i.loli.net/2020/12/20/I7dKEmjqMYF3yUi.png" style="zoom: 67%;" />
 
 id_rsa：是私钥，id_rsa.pub：公钥
 
@@ -116,9 +108,7 @@ id_rsa：是私钥，id_rsa.pub：公钥
 
 我们怎么样将一个文件层层流转呢？
 
-<img src="..\images\git\git6-filechange.png" alt="git6-filechange" style="zoom:67%;" />
-
-<img src="https://i.loli.net/2020/12/19/jBEKMV6bRFNd8Ps.png" style="zoom:50%;" />
+<img src="https://i.loli.net/2020/12/19/jBEKMV6bRFNd8Ps.png" style="zoom: 67%;" />
 
 根据上图，我们可以学习几个命令
 
@@ -148,6 +138,8 @@ staged：已添加至暂存区。将新增的文件使用git add filename，此�
 
 <img src="D:\a-github\MianShi\images\git\git7-filestatus.png" alt="git7-filestatus" style="zoom:80%;" />
 
+![](https://i.loli.net/2020/12/20/RYxetLMhVbDd8Js.png)
+
 可以通过git status 或者 git status filename查看具体文件的状态
 
 九、版本前进和后退
@@ -156,7 +148,7 @@ git的版本前进和后退有三种方式，分别是索引值、^ 、~ 。推�
 
 首先使用git log，查看提交的日志信息。空格下页，b上页，q退出。
 
-<img src="D:\a-github\MianShi\images\git\git8-gitlog.png" alt="git8-gitlog" style="zoom:80%;" />
+<img src="https://i.loli.net/2020/12/20/GNuwoqPiBOd7L9K.png" alt="image-20201220151355658" style="zoom:67%;" />
 
 **commit 7c75871790350db41d79e1f7e107de8954790fac (HEAD -> master)** 
 
@@ -166,7 +158,7 @@ git的版本前进和后退有三种方式，分别是索引值、^ 、~ 。推�
 
 git reflog，更加直观的查看提交信息
 
-<img src="D:\a-github\MianShi\images\git\git9-reflog.png" alt="git9-reflog" style="zoom:80%;" />
+<img src="https://i.loli.net/2020/12/20/73JOsVfHSUWDBNk.png" alt="image-20201220151519876" style="zoom:67%;" />
 
 **7c75871 (HEAD -> master) HEAD@{0}: checkout: moving from hot_fix to master**
 
@@ -174,11 +166,11 @@ git reflog，更加直观的查看提交信息
 
 git reset --hard 索引值，就可以直接前进或回退到指定版本。
 
-<img src="D:\a-github\MianShi\images\git\git10-getreset.png" alt="git10-getreset" style="zoom:80%;" />
+<img src="https://i.loli.net/2020/12/20/86KXaFPwMWvcGkl.png" style="zoom: 67%;" />
 
 从上图，我们可以看到版本已经退回到08a5a26版本。
 
-<img src="D:\a-github\MianShi\images\git\git17.png" alt="git17" style="zoom:50%;" />
+<img src="https://i.loli.net/2020/12/20/yI8ip9Wk56CEdqK.png" style="zoom:67%;" />
 
 git reset 有三个参数
 
@@ -196,21 +188,15 @@ git reset 有三个参数
 
 git branch -v，查看所有的分支
 
-<img src="D:\a-github\MianShi\images\git\git11-gitbranch.png" alt="git11-gitbranch" style="zoom: 67%;" />
-
-
+<img src="https://i.loli.net/2020/12/20/pu2N5sHB4gUVvKL.png" style="zoom:67%;" />
 
 git branch branchname，创建一个新的分支
 
-<img src="D:\a-github\MianShi\images\git\git12-gitbranch.png" alt="git12-gitbranch" style="zoom: 67%;" />
-
-
+<img src="https://i.loli.net/2020/12/20/LWCl3Xov6n7xArf.png" style="zoom:67%;" />
 
 git checkout branchname，切换分支
 
-<img src="D:\a-github\MianShi\images\git\git13-gitcheckout.png" alt="git13-gitcheckout" style="zoom: 67%;" />
-
-
+<img src="https://i.loli.net/2020/12/20/DulsTIpQYjh1cRx.png" style="zoom:67%;" />
 
 git merge branchname，分支合并
 
@@ -220,15 +206,15 @@ git merge branchname，分支合并
 
 创建A分支，并在文件最后一行添加内容
 
-<img src="D:\a-github\MianShi\images\git\git14.png" alt="git14" style="zoom:67%;" />
+<img src="https://i.loli.net/2020/12/20/FUu8vr3dZVAMy5w.png" style="zoom:67%;" />
 
 创建B分支，并在文件最后一行添加内容
 
-<img src="D:\a-github\MianShi\images\git\git15.png" alt="git15" style="zoom:67%;" />
+<img src="https://i.loli.net/2020/12/20/dtZiTf2B5v4MYqQ.png" style="zoom:67%;" />
 
 切换到A分支下，将B分支合并到A分支上。发生了冲突。
 
-<img src="D:\a-github\MianShi\images\git\git16.png" alt="git16" style="zoom:67%;" />
+<img src="https://i.loli.net/2020/12/20/4ngU7cHaN9DzLwI.png" style="zoom:67%;" />
 
 什么意思呢？HEAD表示当前分支的内容，从<<<<<< 到 =====之间
 
@@ -272,7 +258,7 @@ git tag tagname，为最近一次的commit创建tag
 
 git show tagname，查看tag的详细信息
 
-<img src="D:\a-github\MianShi\images\git\git18.png" alt="git18" style="zoom: 50%;" />
+<img src="https://i.loli.net/2020/12/20/JuhNjIM5kXrWY1S.png" style="zoom:67%;" />
 
 git tag tagname 索引值，为指定的提交创建tag
 
@@ -292,13 +278,15 @@ git push 仓库地址:refs/tags/tagname，删除远程标签
 
 当我们在使用git init 初始化一个git仓库后，只清楚git自动给我们创建了一个.git文件，并没有去关注他的结构，现在我们先看下.git文件结构目录。
 
-<img src="D:\a-github\MianShi\images\git\git19.png" alt="git19" style="zoom:67%;" />
+<img src="https://i.loli.net/2020/12/20/YJfP9e3dbpGIryZ.png" style="zoom:67%;" />
 
 1、hooks，里面是git提供的命令脚本
 
 2、info，存放仓库的一些信息
 
-3、logs，记录每次跟新的操作。HEAD文件内容如下：![git20](D:\a-github\MianShi\images\git\git20.png)
+3、logs，记录每次跟新的操作。HEAD文件内容如下：
+
+![](https://i.loli.net/2020/12/20/wLAcH8kZMhmPObr.png)
 
 看到这个文件，是不是发现，这些就是我们git log展示的信息。
 
@@ -306,13 +294,13 @@ git push 仓库地址:refs/tags/tagname，删除远程标签
 
 可以根据每次提交生成的hash值与objects中的一个文件对应。
 
-<img src="D:\a-github\MianShi\images\git\git21.png" alt="git21" style="zoom:50%;" />
+<img src="https://i.loli.net/2020/12/20/bH5xNkFIJ9ZgPed.png" style="zoom:67%;" />
 
 也就是说，我们每次提交，都会生成一个object对象与之对应。
 
 5、refs
 
-<img src="D:\a-github\MianShi\images\git\git22.png" alt="git22" style="zoom:50%;" />
+<img src="https://i.loli.net/2020/12/20/fASh4OWYeJmD1yC.png" style="zoom:67%;" />
 
 heads/master文件存储了当前最新的hash值
 
@@ -328,7 +316,7 @@ tags，有没有很熟悉，firsttag就是我们创建的标签，firsttag文件
 
 HEAD文件内容：ref: refs/heads/master，指向了master文件。
 
-<img src="D:\a-github\MianShi\images\git\git23.png" alt="git23" style="zoom: 50%;" />
+<img src="https://i.loli.net/2020/12/20/LDk2Ez8tmfFGelj.png" style="zoom:67%;" />
 
 10、index，暂存区stage
 
@@ -340,7 +328,7 @@ HEAD文件内容：ref: refs/heads/master，指向了master文件。
 
 查看暂存区中某个文件的内容git cat-files -p 文件hash值
 
-<img src="D:\a-github\MianShi\images\git\git24.png" alt="git24" style="zoom:50%;" />
+<img src="https://i.loli.net/2020/12/20/4xGFsBtPc2apeV9.png" alt="image-20201220150901171" style="zoom:67%;" />
 
 暂存区中文件的hash值正好与objects文件中的一个文件对应。
 
@@ -356,9 +344,8 @@ HEAD文件内容：ref: refs/heads/master，指向了master文件。
 
 4. 当我们修改文件添加到暂存区后，在objects中有会创建一个新的对象。index中该文件的索引就会指向对象库中新的对象。会重新计算tree对象，当执行commit时，又会根据计算的tree对象在对象库中生成一个tree对象。新生成的commit对象指向新的tree。
 
-   <img src="D:\a-github\MianShi\images\git\git25.png" alt="git25" style="zoom:67%;" />
 
-
+<img src="https://i.loli.net/2020/12/20/ov6OBamlWckMp5b.png" style="zoom:67%;" />
 
 十四、命令总结
 
